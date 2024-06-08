@@ -1,11 +1,15 @@
 -- CreateTable
 CREATE TABLE "users" (
     "id" SERIAL NOT NULL,
-    "name" VARCHAR NOT NULL,
-    "email" VARCHAR NOT NULL,
-    "address" VARCHAR,
+    "name" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "password" TEXT,
+    "address" TEXT,
     "createdat" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "deletedat" TIMESTAMP,
 
     CONSTRAINT "users_pkey" PRIMARY KEY ("id")
 );
+
+-- CreateIndex
+CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
